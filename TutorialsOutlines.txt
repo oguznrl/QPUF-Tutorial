@@ -1,0 +1,71 @@
+Session 1 — Foundations and the qPUF Landscape (90 min)
+
+    Welcome, motivation, learning outcomes, and a quick audience poll (who works on PUFs? who works on quantum?)
+
+    Classical PUFs, critically: constructions and metrics, followed by their limitations (ML modelling attacks, cloning, noise/fuzzy-extractor costs, and enrolment trust), leading to a “wish list” for a better primitive
+
+    Lab 1: Clone a Classical PUF
+
+    Bridge to quantum: what quantum properties could offer (e.g., no-cloning and measurement disturbance, mapped onto the failures observed in Lab 1), and what they do not automatically solve
+
+    One term, three primitives: the terminology problem and a taxonomy decision tree — what exactly is quantum: the challenge/response, the readout, or the underlying hardware?
+
+    Deep Dive 1: Fully Quantum PUFs — definitions, possibilities/impossibilities, verifier burden, and a “report card”
+
+    Recap against the wish list and a teaser for Session 2
+
+Break — 30 min
+Reset for the second session and resolve any notebook/setup issues.
+Session 2 — Comparison, Classification, and the Road Ahead (90 min)
+
+    Re-entry quiz with three quick show-of-hands questions
+
+    Deep Dive 2: QR-PUFs / hybrid PUFs — quantum readout of classical structures
+
+    Deep Dive 3: CR-QPUFs and quantum-hardware PUFs — NISQ fingerprints, tunnelling, quantum dots, etc.
+
+    Lab 2: Clone a QR-PUF
+
+    Comparison matrix, revealed row by row and linked back to the two labs
+
+    Guided discussion of open problems, with audience contributions and dot-voting
+
+    Wrap-up
+
+Lab 1 — Clone a Classical PUF (25 min)
+
+Goal: Let attendees experience first-hand why classical PUFs can fall short before introducing any quantum concepts. The key insight is that the responses are classical bits: they can be copied, stored and, importantly, learned. Therefore, unclonable hardware does not necessarily imply an unclonable function. The quantum approaches introduced later in the tutorial can then be assessed against this failure.
+
+Activity: Working in pairs using a shared notebook, attendees will:
+
+    Simulate a population of 64-stage arbiter PUFs using the additive delay model.
+
+    Compute standard metrics themselves — uniqueness ≈ 0.50, reliability ≈ 99%, and uniformity ≈ 0.50 — and inspect the intra-/inter-device distributions.
+
+    Mount a modelling attack by training logistic regression on observed CRPs and watching the clone accuracy increase from approximately 71% with 50 CRPs to approximately 95% with 500 CRPs, without ever accessing the physical PUF.
+
+Suggested timing: 3 min setup + 15 min guided work + 5 min plenary discussion (“Which assumption did we actually break?”) + 2 min buffer.
+
+Reference: PyPUF documentation.
+Lab 2 — Clone a QR-PUF (25 min)
+
+Goal: Demonstrate experimentally how adding quantum-encoded responses to the Lab 1 
+      arbiter PUF changes the cloning problem. Following the hybrid-PUF construction 
+      in the Quantum Lock paper (arXiv:2110.09469), the lab explores how modelling attacks 
+      require substantially more CRPs when the attacker has access only to quantum-encoded 
+      responses, while the basis information encoded using BB84 cannot be directly learned 
+      from a single copy.
+
+Activity: Attendees will encode each pair of arbiter-PUF response bits into one BB84 qubit, 
+          with one bit determining the basis and the other the encoded value. They will then:
+
+    Explore Eve’s information limits numerically, including why the basis bit cannot be 
+    distinguished from a single copy and the limits on recovering the value bit.
+
+    Replay the Lab 1 ML attack using the resulting noisy labels and compare the 
+    number of CRPs required to reach a given modelling accuracy.
+
+    Examine how the probability of successful forgery decreases as 
+    the number of verified qubits increases.
+
+    Discuss challenge reuse and the lockdown countermeasure proposed in the paper.
