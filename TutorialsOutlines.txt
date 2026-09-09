@@ -34,15 +34,19 @@ Session 2 — Comparison, Classification, and the Road Ahead (90 min)
 
 Lab 1 — Clone a Classical PUF (25 min)
 
-Goal: Let attendees experience first-hand why classical PUFs can fall short before introducing any quantum concepts. The key insight is that the responses are classical bits: they can be copied, stored and, importantly, learned. Therefore, unclonable hardware does not necessarily imply an unclonable function. The quantum approaches introduced later in the tutorial can then be assessed against this failure.
+Goal: Let attendees experience first-hand why classical PUFs can fall short before introducing any quantum concepts. The key insight is that 
+the responses are classical bits: they can be copied, stored and, importantly, learned. Therefore, unclonable hardware does not necessarily 
+imply an unclonable function. The quantum approaches introduced later in the tutorial can then be assessed against this failure.
 
 Activity: Working in pairs using a shared notebook, attendees will:
 
     Simulate a population of 64-stage arbiter PUFs using the additive delay model.
 
-    Compute standard metrics themselves — uniqueness ≈ 0.50, reliability ≈ 99%, and uniformity ≈ 0.50 — and inspect the intra-/inter-device distributions.
+    Compute standard metrics themselves — uniqueness ≈ 0.50, reliability ≈ 99%, and uniformity ≈ 0.50 — and 
+    inspect the intra-/inter-device distributions.
 
-    Mount a modelling attack by training logistic regression on observed CRPs and watching the clone accuracy increase from approximately 71% with 50 CRPs to approximately 95% with 500 CRPs, without ever accessing the physical PUF.
+    Mount a modelling attack by training logistic regression on observed CRPs and watching the clone accuracy 
+    increase from approximately 71% with 50 CRPs to approximately 95% with 500 CRPs, without ever accessing the physical PUF.
 
 Suggested timing: 3 min setup + 15 min guided work + 5 min plenary discussion (“Which assumption did we actually break?”) + 2 min buffer.
 
