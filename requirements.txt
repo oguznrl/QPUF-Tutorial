@@ -1,0 +1,30 @@
+# QPUF Labs - Python dependencies
+#
+# setup_env.sh / setup_env.bat install this file inside a virtual environment.
+#
+# pypuf itself is NOT listed here: pypuf 3.2.1 declares tensorflow~=2.4.0,
+# which has no wheels for Python 3.9+, so a plain "pip install pypuf==3.2.1"
+# cannot be resolved on a modern Python. The setup scripts install it
+# separately with --no-deps, after the dependencies below:
+#     pip install --no-deps pypuf==3.2.1
+
+# pypuf 3.2.1's own dependencies (except its old tensorflow pin)
+numpy<2.0           # pypuf 3.2.1 is not compatible with NumPy 2.x
+scipy
+memory-profiler
+more-itertools
+
+# Training backend for LRAttack2021 (a modern TensorFlow; the notebooks
+# include the runtime patch cell for the known int8 TypeError)
+tensorflow
+
+# Plots
+matplotlib
+
+# Lab 2, Section 7 (bonus Qiskit implementation)
+qiskit
+qiskit-aer
+
+# Notebook runner
+jupyter
+ipykernel
